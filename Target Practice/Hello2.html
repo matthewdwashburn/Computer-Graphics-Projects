@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello!</title>
+
+    <script id="vertex-shader" type="x-shader/x-vertex">#version 300 es
+        in vec4 vPosition;
+        void main(){
+            gl_Position = vPosition;
+        }
+
+
+    </script>
+    <script id="fragment-shader" type="x-shader/x-fragment">#version 300 es
+        precision mediump float;
+        uniform vec4 color; //used for setting something the same for the entire frame until I need to redraw
+        out vec4 fragColor;
+        void main(){
+            fragColor = color;
+        }
+    </script>
+
+    <style>
+        html{
+            cursor: crosshair;
+        }
+    </style>
+
+    <script type = "module" src = "hellofunctions2.js"></script>
+</head>
+<body>
+<div>Target Practice</div>
+<div>Instructions:</div>
+<div>1. Click the targets to destroy them.</div>
+<div>2. Press "m" to toggle target movement.</div>
+<div>3. Press "r","g","b", or "w" to change the target colors.</div>
+<div>4. Click the reset button to start a new game! Good Luck!</div>
+<div id="missCount">Misses: 0</div>
+<div id="targetsRemaining">Targets Remaining: 5</div>
+<canvas id = "gl-canvas" width="512" height="512">
+    Sorry; your web browser doesn't support HTML5's canvas element.
+</canvas>
+</body>
+<div style="text-align: left;">
+<button id="resetButton" onclick="start()">Reset</button>
+</div>
+</html>

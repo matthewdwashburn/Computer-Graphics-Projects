@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello!</title>
+
+    <script id="vertex-shader" type="x-shader/x-vertex">#version 300 es
+        in vec4 vPosition;
+        void main() {
+        gl_Position = vPosition;
+        }
+    </script>
+
+    <script id="fragment-shader" type="x-shader/x-fragment">#version 300 es
+        precision mediump float;
+        out vec4 fragColor;
+        void main() {
+        fragColor = vec4(1.0, 1.0, 1.0, 1.0);
+        }
+    </script>
+
+    <script type = "module" src = "Assignment2.js"></script>
+</head>
+<body>
+<div>This is close to the bare minimum of code to get a WebGL program going</div>
+<canvas id = "gl-canvas" width="512" height="512">
+    Sorry; your web browser doesn't support HTML5's canvas element.
+</canvas>
+</body>
+</html>
