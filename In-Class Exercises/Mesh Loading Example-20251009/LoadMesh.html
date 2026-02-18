@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mesh Loading Example</title>
+
+    <script id="vertex-shader" type="x-shader/x-vertex">#version 300 es
+   uniform mat4 mv;
+   uniform mat4 proj;
+
+   in vec4 vPosition;
+   in vec4 vNormal;
+   out vec4 color;
+
+    void main(){
+        gl_Position = proj*mv*vPosition;
+
+        //as a last ditch debugging strategy we can treat any vector as a color vector.
+        //red is our x coordinate, green is our y coordinate, blue is our z coordinate
+        color = vec4(vNormal.xyz, 1); //Normal vector has w coordinate of 0
+
+        //color = vPosition ;
+
+    }
+</script>
+
+    <script id="fragment-shader" type="x-shader/x-fragment">#version 300 es
+    precision mediump float;
+    in vec4 color;
+
+    out vec4 fragColor;
+
+    void main(){
+
+        fragColor = color;
+
+    }
+</script>
+    <script type = "module" src = "meshfunctions.js"></script>
+</head>
+<body>
+<div>
+    <p>This is a very simplified mesh loading example.  We're using a stripped down mesh format based on the PLY format.
+    The assumption is that the file starts with two integers, the number of vertices and the number of triangles. Next comes
+    a list of xyz coordinates for each vertex, and then a list of vertex indices for each triangle.
+    </p>
+    <p>
+    A real PLY file would have a header describing the attributes contained in the file, and would probably have more
+    than just position information for each vertex.
+    </p>
+    <p>
+    This code is not terribly robust and will not handle poorly formed files well.
+    </p>
+</div>
+<div> Select mesh file:
+    <input type = "file" id="fileInput">
+</div>
+<canvas id = "gl-canvas" width="1280" height="768">
+    Sorry; you web browser doesn't support HTML5's canvas element.
+</canvas>
+</body>
+</html>
