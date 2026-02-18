@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.title {
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border-radius: 8px;
+    font-family: sans-serif;
+    z-index: 10;
+    padding: 12px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    background: #c1c1c1;
+    padding: 0.5rem 2rem;
+    border-radius: 5px;
+    width: 100%; /* Width of the outside container */
+}
+
+/* The slider itself */
+.slider {
+    appearance: none;  /* Override default CSS styles */
+    width: 100%; /* Full-width */
+    height: 6px; /* Specified height */
+    background: #ebe9e7; /* Grey background */
+    outline: none; /* Remove outline */
+    border-radius: 5px;
+}
+
+/* The slider handle */
+.slider::-webkit-slider-thumb {
+    appearance: none; /* Override default look */
+    width: 20px; /* Set a specific slider handle width */
+    height: 20px; /* Slider handle height */
+    background: #114bf8; /* Green background */
+    border-radius: 50%;
+    cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+    appearance: none; /* Override default look */
+    width: 20px; /* Set a specific slider handle width */
+    height: 20px; /* Slider handle height */
+    background: #114bf8; /* Green background */
+    border-radius: 50%;
+    cursor: pointer; /* Cursor on hover */
+}
+
+.value {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    margin-left: 1rem;
+    background: #114bf8;
+    color: white;
+    width: 150px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+.instructions-panel {
+    position: fixed;
+    top: 20px;
+    right: 145px;
+
+    text-align: left;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 15px;
+    border-radius: 8px;
+    max-width: 300px;
+    font-size: 14px;
+    color: white;
+
+    z-index: 1000; /* keeps it above the canvas */
+}
+
+
+.slider-panel {
+    position: fixed;
+    top: 60px;
+    left: 85px;
+
+    width: 330px;
+    padding: 12px;
+
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+
+    border-radius: 8px;
+    font-family: sans-serif;
+    z-index: 10;
+}
+
+body {
+    background-color: #454545;
+}
+

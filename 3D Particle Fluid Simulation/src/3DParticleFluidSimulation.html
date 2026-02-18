@@ -1,0 +1,133 @@
+<!--Author: Matthew Washburn
+    Version: Fall 2025 -->
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>3D Particle Fluid Simulation</title>
+
+    <link rel="stylesheet" type="text/css" href="3DParticleFluidSimulation.css" />
+
+    <script type="module" src="3DParticleFluidSimulation.js"></script>
+</head>
+
+<body>
+<!-- Title and canvas -->
+<div class="center">
+    <br>
+<h4 class="title">3D Particle Fluid Simulation</h4>
+    <br>
+<canvas id="gl-canvas" width="512" height="512">
+    Sorry; your web browser doesn't support HTML5's canvas element.
+</canvas>
+<div class="slider-panel">
+    <!-- Divs for adjusting physics calculation constants -->
+    <div>Bounding Box Size</div>
+    <br>
+    <div class="container">
+        <label for="boundingBoxSize"></label><input type="range" id="boundingBoxSize" min="4" max="20" value="5" class="slider">
+        <div class="value" id="boundingBoxSizeValue"></div>
+    </div>
+    <br>
+
+    <div>Rest Density</div>
+    <br>
+    <div class="container">
+        <label for="restDensity"></label><input type="range" id="restDensity" min="1" max="10000" value="1000" class="slider">
+        <div class="value" id="restDensityValue"></div>
+    </div>
+    <br>
+
+    <div>Relaxation Parameter</div>
+    <br>
+    <div class="container">
+        <label for="relaxationParameter"></label><input type="range" id="relaxationParameter" min="0" max="10000" value="1000" class="slider">
+        <div class="value" id="relaxationParameterValue"></div>
+    </div>
+    <br>
+    <div>Filter Radius</div>
+    <br>
+    <div class="container">
+        <label for="filterRadius"></label><input type="range" id="filterRadius" min="0" max="20" value="8" class="slider">
+        <div class="value" id="filterRadiusValue"></div>
+    </div>
+    <br>
+    <div>Spatial Scale</div>
+    <br>
+    <div class="container">
+        <label for="spatialScale"></label><input type="range" id="spatialScale" min="0" max="10" value="0.2" step="0.01" class="slider">
+        <div class="value" id="spatialScaleValue"></div>
+    </div>
+    <br>
+    <div>Depth Falloff</div>
+    <br>
+    <div class="container">
+        <label for="depthFalloff"></label><input type="range" id="depthFalloff" min="0" max="0.003" value="0.00023" step="0.00001" class="slider">
+        <div class="value" id="depthFalloffValue"></div>
+    </div>
+    <br>
+    <div id="physicsMode">Physics Mode: OFF</div>
+    <div id="movement">Movement: OFF</div>
+    <div id="renderMode">Render Mode: Density Map</div>
+
+</div>
+
+    <!-- Instructions Panel -->
+    <div class="instructions-panel">
+        <h3 style="margin-top: 0;">Controls</h3>
+        <br>
+        <h4>Simulation</h4>
+        <br>
+        <p><strong>5</strong> - Reset particles<br>
+            <strong>6</strong> - Toggle fluid simulation<br>
+            <strong>7</strong> - Toggle ball pit mode<br>
+            <strong>8</strong> - Cycle render modes (0-4)</p>
+        <br>
+        <h4>Car Controls</h4>
+        <br>
+        <p><strong>↑</strong> - Move forward<br>
+            <strong>↓</strong> - Move backward<br>
+            <strong>←</strong> - Turn left<br>
+            <strong>→</strong> - Turn right<br>
+            <strong>Space</strong> - Stop car</p>
+        <br>
+        <h4>Driver Head</h4>
+        <br>
+        <p><strong>Z</strong> - Turn head left<br>
+            <strong>X</strong> - Turn head right</p>
+        <br>
+        <h4>Cameras</h4>
+        <br>
+        <p><strong>1</strong> - Free camera<br>
+            <strong>2</strong> - Driver view<br>
+            <strong>3</strong> - Chase camera<br>
+            <strong>4</strong> - Orbital fluid camera</p>
+        <br>
+        <h4>Camera 1 Controls</h4>
+        <br>
+        <p><strong>Q</strong> - Zoom in<br>
+            <strong>W</strong> - Zoom out<br>
+            <strong>A</strong> - Dolly out<br>
+            <strong>S</strong> - Dolly in<br>
+            <strong>F</strong> - Toggle follow car<br>
+            <strong>R</strong> - Reset camera</p>
+        <br>
+        <h4>Camera 4 Controls</h4>
+        <br>
+        <p><strong>U</strong> - Zoom in<br>
+            <strong>J</strong> - Zoom out<br>
+            <strong>Mouse Drag</strong> - Rotate view</p>
+        <br>
+        <h4>Lighting</h4>
+        <br>
+        <p><strong>8</strong> - Toggle headlights</p>
+            <strong>9</strong> - Toggle emergency lights<br>
+            <strong>=</strong> - Toggle day/night<br>
+
+    </div>
+</div>
+
+
+</body>
+</html>
